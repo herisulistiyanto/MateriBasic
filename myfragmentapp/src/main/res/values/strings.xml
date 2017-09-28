@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyFragmentApp</string>
+    <string name="close">CLOSE</string>
+</resources>
