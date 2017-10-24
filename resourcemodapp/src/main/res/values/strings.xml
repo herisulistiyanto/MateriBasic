@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">ResourceModApp</string>
+    <string name="text_content">Current Content In English</string>
+</resources>
