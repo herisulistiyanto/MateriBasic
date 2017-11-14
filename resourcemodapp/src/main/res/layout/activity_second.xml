@@ -24,25 +24,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/et_nama"
-            android:hint="NAMA"
+        <TextView
+            android:id="@+id/tv_nama"
             android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/et_kelas"
-            android:hint="KELAS"
-            android:textSize="16sp"
-            android:inputType="number"
-            android:imeOptions="actionDone"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_height="1dp"
+            android:background="@android:color/black"/>
 
-        <Button
-            android:id="@+id/btn_next"
-            android:text="NEXT"
+        <TextView
+            android:id="@+id/tv_kelas"
+            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
