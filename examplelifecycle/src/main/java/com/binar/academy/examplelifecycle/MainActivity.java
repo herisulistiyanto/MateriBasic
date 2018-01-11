@@ -45,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(TAG, "onPause");
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         Log.e(TAG, "onStop");
