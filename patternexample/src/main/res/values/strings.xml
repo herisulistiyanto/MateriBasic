@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PatternExample</string>
+    <string name="label_result">Result : %1$d</string>
+</resources>

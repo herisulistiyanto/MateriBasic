@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -24,15 +25,17 @@ public class MainActivity extends AppCompatActivity implements FragmentRight.Fra
     private Button btnRight;
     private Button btnNext;
 
+    private final String TAG = MainActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        containerFragment = (FrameLayout) findViewById(R.id.container_fragment);
-        btnLeft = (Button) findViewById(R.id.btn_left);
-        btnRight = (Button) findViewById(R.id.btn_right);
-        btnNext = (Button) findViewById(R.id.btn_next);
+        containerFragment = findViewById(R.id.container_fragment);
+        btnLeft = findViewById(R.id.btn_left);
+        btnRight = findViewById(R.id.btn_right);
+        btnNext = findViewById(R.id.btn_next);
 
         fragmentLeft = FragmentLeft.newInstance();
         fragmentRight = FragmentRight.newInstance();
@@ -65,9 +68,40 @@ public class MainActivity extends AppCompatActivity implements FragmentRight.Fra
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivityForResult(intent, 123);
+                startActivity(intent);
             }
         });
 
+        Log.e(TAG, "onCreate");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(TAG, "onResume");
+
+        try {
+            throw new Exception("CONTOH EXCEPTION");
+        } catch (Exception e) {
+            Log.e(TAG, "onResume exception : " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            Log.e(TAG, "onResume FINALLY: ");
+        }
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(TAG, "onPause");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "onDestroy");
     }
 
     @Override
