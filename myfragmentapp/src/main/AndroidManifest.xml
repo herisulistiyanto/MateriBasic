@@ -19,6 +19,7 @@
 
         <activity
             android:name=".second.SecondActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/fullScreenTheme" />
 
     </application>

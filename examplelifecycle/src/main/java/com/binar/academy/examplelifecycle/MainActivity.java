@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +21,17 @@ public class MainActivity extends AppCompatActivity {
 
         setupFragment();
         Log.e(TAG, "onCreate");
+
+        Button btnSecond = findViewById(R.id.btn_second);
+        btnSecond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent nextIntent = new Intent(MainActivity.this, SecondActivity.class);
+//                startActivity(nextIntent);
+//                MainActivity.this.finish();
+                Toast.makeText(MainActivity.this, "INI TOAST", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

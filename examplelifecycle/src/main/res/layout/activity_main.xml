@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.binar.academy.examplelifecycle.MainActivity">
 
+    <Button
+        android:id="@+id/btn_second"
+        android:text="SECOND"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/tv_hello"
         android:layout_width="wrap_content"

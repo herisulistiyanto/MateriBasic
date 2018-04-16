@@ -20,20 +20,27 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         TextView tvNama = findViewById(R.id.tv_nama);
-        TextView tvKelas = findViewById(R.id.tv_kelas);
+        TextView tvKelamin = findViewById(R.id.tv_kelamin);
+        TextView tvUsia = findViewById(R.id.tv_usia);
 
         Intent intent = getIntent();
         if (null != intent) {
-            Student resultStudent = intent.getParcelableExtra(IntentKey.KEY_PAKET);
+//            Student resultStudent = intent.getParcelableExtra(IntentKey.KEY_PAKET);
+//            tvNama.setText(resultStudent.getNama());
+//            tvKelamin.setText(resultStudent.getKelas());
 
-            tvNama.setText(resultStudent.getNama());
-            tvKelas.setText(resultStudent.getKelas());
+            Manusia paketManusia = intent.getParcelableExtra(IntentKey.KEY_PAKET);
+            tvNama.setText(paketManusia.getNama());
+            tvKelamin.setText(paketManusia.getJenisKelamin());
+
+            int usia = paketManusia.getUsia();
+            tvUsia.setText(""+usia);
+
+            tvUsia.setText(String.valueOf(paketManusia.getUsia()));
         }
-
-
     }
 
-    public class IntentKey {
+    public final class IntentKey {
         public static final String KEY_PAKET = "SecondActivity.PAKET";
     }
 }

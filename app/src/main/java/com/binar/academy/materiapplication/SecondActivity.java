@@ -1,6 +1,5 @@
 package com.binar.academy.materiapplication;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,12 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
 
-    private SharedPreferences preferences;
-    private final String NAMA_PREF = "namaPref";
-    private final String PREF_KEY_NAMA = "PREF_KEY_NAMA";
-    private final String PREF_KEY_UMUR = "PREF_KEY_UMUR";
+    private PreferenceHelper preferenceHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +27,11 @@ public class MainActivity extends AppCompatActivity {
         final Button btnSave = findViewById(R.id.btn_save);
         final Button btnClear = findViewById(R.id.btn_clear);
 
-        tvNama.setText(preferences.getString(PREF_KEY_NAMA, "INI DEFAULT VALUE"));
+        tvNama.setText(preferenceHelper.getString(ConstantPreferences.PREF_KEY_NAMA,
+                "INI DEFAULT VALUE"));
+
         tvUmur.setText(String.format("%s Tahun",
-                preferences.getString(PREF_KEY_UMUR, "17")));
+                preferenceHelper.getString(ConstantPreferences.PREF_KEY_UMUR, "17")));
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clear(PREF_KEY_NAMA);
-                clear(PREF_KEY_UMUR);
+                preferenceHelper.clear(ConstantPreferences.PREF_KEY_NAMA);
+                preferenceHelper.clear(ConstantPreferences.PREF_KEY_UMUR);
                 tvNama.setText("");
                 tvUmur.setText("");
             }
@@ -60,16 +58,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setupSharedPref() {
-        preferences = getSharedPreferences(NAMA_PREF, MODE_PRIVATE);
-    }
-
     private void save(String nama, String umur) {
-        preferences.edit().putString(PREF_KEY_NAMA, nama).apply();
-        preferences.edit().putString(PREF_KEY_UMUR, umur).apply();
+        preferenceHelper.setString(ConstantPreferences.PREF_KEY_NAMA, nama);
+        preferenceHelper.setString(ConstantPreferences.PREF_KEY_UMUR, umur);
     }
 
-    private void clear(String key) {
-        preferences.edit().remove(key).apply();
+    private void setupSharedPref() {
+        preferenceHelper = PreferenceHelper.getInstance(SecondActivity.this);
     }
+
 }

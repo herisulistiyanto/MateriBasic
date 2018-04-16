@@ -43,8 +43,8 @@ public class SecondActivity extends AppCompatActivity implements ViewPager.OnPag
         fragmentList.add(SlideFragment.newInstance("KETIGA"));
 
         indicators = new ArrayList<>(NUM_PAGES);
-        layoutIndicator = (LinearLayout) findViewById(R.id.layout_indicator);
-        tvClose = (TextView) findViewById(R.id.tv_close);
+        layoutIndicator = findViewById(R.id.layout_indicator);
+        tvClose = findViewById(R.id.tv_close);
         tvClose.setVisibility(View.GONE);
         tvClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +54,7 @@ public class SecondActivity extends AppCompatActivity implements ViewPager.OnPag
             }
         });
 
-        slideViewPager = (ViewPager) findViewById(R.id.pager_slide);
+        slideViewPager = findViewById(R.id.pager_slide);
         SecondPagerAdapter pagerAdapter = new SecondPagerAdapter(getSupportFragmentManager(), fragmentList);
         slideViewPager.setAdapter(pagerAdapter);
         slideViewPager.addOnPageChangeListener(this);

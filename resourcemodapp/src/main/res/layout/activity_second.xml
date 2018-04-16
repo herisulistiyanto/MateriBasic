@@ -38,7 +38,20 @@
             android:background="@android:color/black"/>
 
         <TextView
-            android:id="@+id/tv_kelas"
+            android:id="@+id/tv_kelamin"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_height="1dp"
+            android:background="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/tv_usia"
             android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

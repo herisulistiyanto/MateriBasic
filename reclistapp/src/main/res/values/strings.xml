@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RecListApp</string>
+    <string name="label_tiga">LABEL TIGA</string>
+    <string name="label_dua">LABEL DUA</string>
 </resources>

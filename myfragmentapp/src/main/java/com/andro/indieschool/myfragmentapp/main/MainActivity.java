@@ -14,7 +14,8 @@ import android.widget.Toast;
 import com.andro.indieschool.myfragmentapp.R;
 import com.andro.indieschool.myfragmentapp.second.SecondActivity;
 
-public class MainActivity extends AppCompatActivity implements FragmentRight.FragmentRightListener {
+public class MainActivity extends AppCompatActivity
+        implements FragmentRight.FragmentRightListener {
 
     private FrameLayout containerFragment;
     private FragmentLeft fragmentLeft;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements FragmentRight.Fra
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivityForResult(intent, 123);
-                startActivity(intent);
+//                startActivity(intent);
             }
         });
 
@@ -79,17 +80,6 @@ public class MainActivity extends AppCompatActivity implements FragmentRight.Fra
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e(TAG, "onResume");
-
-        try {
-            throw new Exception("CONTOH EXCEPTION");
-        } catch (Exception e) {
-            Log.e(TAG, "onResume exception : " + e.getMessage());
-            e.printStackTrace();
-        } finally {
-            Log.e(TAG, "onResume FINALLY: ");
-        }
-
     }
 
     @Override

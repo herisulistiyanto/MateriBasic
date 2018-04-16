@@ -2,6 +2,7 @@ package com.andro.indieschool.reclistapp.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,19 +13,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andro.indieschool.reclistapp.R;
+import com.andro.indieschool.reclistapp.main.item.ContohAdapter;
 import com.andro.indieschool.reclistapp.main.item.MainItemAdapter;
 import com.andro.indieschool.reclistapp.model.ItemModel;
 import com.andro.indieschool.reclistapp.second.SecondActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MainItemAdapter.OnItemListener {
+public class MainActivity extends AppCompatActivity
+        implements MainItemAdapter.OnItemListener, ContohAdapter.ContohOnClickItemListener {
 
     private RecyclerView recyclerViewVertical;
     private RecyclerView recyclerViewHorizontal;
     private RecyclerView recyclerViewGrid;
     private MainItemAdapter adapter;
     private ArrayList<ItemModel> itemModelArrayList;
+
+    private ContohAdapter contohAdapter;
 
     private Button btnNext;
 
@@ -34,14 +40,21 @@ public class MainActivity extends AppCompatActivity implements MainItemAdapter.O
         setContentView(R.layout.activity_main);
         itemModelArrayList = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
-            itemModelArrayList.add(new ItemModel(String.valueOf( (i + 1) )));
+            itemModelArrayList.add(new ItemModel(String.valueOf((i + 1))));
         }
 
         adapter = new MainItemAdapter(MainActivity.this, this, itemModelArrayList);
 
+        List<String> stringList = new ArrayList<>();
+        stringList.add("Bayu");
+        stringList.add("Lopes");
+        stringList.add("Sekar");
+
+        contohAdapter = new ContohAdapter(MainActivity.this, stringList, this);
+
         recyclerViewVertical = findViewById(R.id.recyclerVertical);
         recyclerViewVertical.setLayoutManager(new LinearLayoutManager(this));
-        recyclerViewVertical.setAdapter(adapter);
+        recyclerViewVertical.setAdapter(contohAdapter);
 
         recyclerViewGrid = findViewById(R.id.recyclerGrid);
         recyclerViewGrid.setLayoutManager(new GridLayoutManager(this, 3));
@@ -69,5 +82,11 @@ public class MainActivity extends AppCompatActivity implements MainItemAdapter.O
                 itemModelArrayList.get(position).getInfo(),
                 Toast.LENGTH_SHORT)
                 .show();
+    }
+
+    @Override
+    public void contohOnClick(int position) {
+        Toast.makeText(this, "" + position, Toast.LENGTH_SHORT).show();
+        Snackbar.make(recyclerViewGrid, "" + position, Snackbar.LENGTH_SHORT).show();
     }
 }

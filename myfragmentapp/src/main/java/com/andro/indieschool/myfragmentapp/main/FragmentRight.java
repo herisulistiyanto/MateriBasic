@@ -50,8 +50,6 @@ public class FragmentRight extends Fragment {
         void onClickActionRight();
     }
 
-
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

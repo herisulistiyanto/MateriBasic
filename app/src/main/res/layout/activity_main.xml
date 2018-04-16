@@ -9,6 +9,14 @@
 
     <EditText
         android:id="@+id/et_name"
+        android:hint="NAMA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/et_umur"
+        android:hint="UMUR"
+        android:inputType="numberSigned"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -18,10 +26,20 @@
         android:layout_height="wrap_content"
         android:textSize="16sp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:textStyle="bold"
         android:gravity="center"
         tools:text="NAMA" />
+
+    <TextView
+        android:id="@+id/tv_umur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        tools:text="UMUR" />
 
     <LinearLayout
         android:layout_width="match_parent"

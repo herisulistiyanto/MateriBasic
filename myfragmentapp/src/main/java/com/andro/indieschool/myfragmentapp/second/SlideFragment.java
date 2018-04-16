@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.andro.indieschool.myfragmentapp.R;
 
-import static com.andro.indieschool.myfragmentapp.second.SlideFragment.BundleKey.LABEL_KEY;
 
 /**
  * Created by herisulistiyanto on 8/29/17.
@@ -24,7 +23,7 @@ public class SlideFragment extends Fragment {
     public static SlideFragment newInstance(String label) {
 
         Bundle args = new Bundle();
-        args.putString(LABEL_KEY, label);
+        args.putString(BundleKey.LABEL_KEY, label);
         SlideFragment fragment = new SlideFragment();
         fragment.setArguments(args);
         return fragment;
@@ -43,7 +42,7 @@ public class SlideFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Bundle bundle = getArguments();
         if (null != bundle) {
-            String label = bundle.getString(LABEL_KEY, "ouch !!");
+            String label = bundle.getString(BundleKey.LABEL_KEY, "ouch !!");
             tvLabel.setText(label);
         }
     }
